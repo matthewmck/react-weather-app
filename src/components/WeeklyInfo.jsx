@@ -22,21 +22,29 @@ const Container = styled.section`
   }
 `;
 
+const NoData = styled.section`
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-top: 4rem;
+  text-align: center;
+`;
+
 const WeeklyInfo = props => {
   const { daily, timezone } = props.forecast;
+  const exists = Object.keys(props.forecast).length ? true : false;
   return (
     <Container>
-      {Object.keys(props.forecast).length && (
+      {exists && (
         <Slider>
           {daily.data.map((item, index) => (
             <section key={`weekly${index}`}>
-              <WeatherCard 
+              <WeatherCard
                 apparentMaxTemp={item.apparentTemperatureMax}
                 apparentMinTemp={item.apparentTemperatureMin}
                 chanceOfRain={item.precipProbability}
                 dewPoint={item.dewPoint}
                 humidity={item.humidity}
-                type='weekly'
+                type="weekly"
                 time={item.time}
                 timezone={timezone}
                 summary={item.summary}
@@ -50,8 +58,9 @@ const WeeklyInfo = props => {
           ))}
         </Slider>
       )}
+      {!exists && <NoData>Unable to retrieve weather data 😨</NoData>}
     </Container>
-  ); 
+  );
 };
 
 const mapStateToProps = state => ({

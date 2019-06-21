@@ -10,7 +10,7 @@ const CardFace = styled.article`
   border-radius: .8rem;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   box-sizing: border-box;
-  height: 36rem;
+  min-height: 36rem;
   left: 0;
   margin-left: 2.5rem;
   max-height: 100%;

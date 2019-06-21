@@ -1,13 +1,5 @@
 import moment from 'moment-timezone';
 
-// #### day
-// format('dddd')
-
-// #### day and time
-// format('dddd h:mm a')
-
-// #### Date
-// format('MMMM Do, YYYY')
 export function displayTime(time, timeZone) {
   const utc = moment.unix(time).utc();
   return moment.tz(utc, timeZone);
